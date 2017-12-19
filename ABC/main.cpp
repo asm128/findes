@@ -50,6 +50,7 @@ int32_t																	setup								(SApplication& app)												{
 }
 
 int32_t																	update								(SApplication& app, double lastFrameSeconds)					{
+	lastFrameSeconds;
 	if(GetAsyncKeyState(VK_LEFT		)) --app.Cursor.x;
 	if(GetAsyncKeyState(VK_RIGHT	)) ++app.Cursor.x;
 	if(GetAsyncKeyState(VK_UP		)) --app.Cursor.y;
@@ -77,7 +78,7 @@ int32_t																	update								(SApplication& app, double lastFrameSecond
 	return 0; 
 }
 
-int32_t																	cleanup								(SApplication& app)												{ return 0; }
+int32_t																	cleanup								(SApplication& app)												{ app = {}; return 0; }
 int32_t																	main								()																{
 	SApplication																app;
 	setup(app);
