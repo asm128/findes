@@ -5,7 +5,7 @@
 struct STimer {
 	double																	LastFrame							= 0;
 
-	void																	Reset								()																{
+	inline	void															Reset								()																{
 		QueryPerformanceFrequency	((LARGE_INTEGER*)&TicksPerSecond);
 		SecondsPerTick															= 1.0 / TicksPerSecond;
 		QueryPerformanceCounter		((LARGE_INTEGER*)&FrameTimePrevious);
@@ -13,7 +13,7 @@ struct STimer {
 
 	}
 
-	void																	Frame								()																{
+	inline	void															Frame								()																{
 		QueryPerformanceCounter		((LARGE_INTEGER*)&FrameTimeCurrent);
 		LastFrame																= (float)(( FrameTimeCurrent - FrameTimePrevious ) * SecondsPerTick);
 		FrameTimePrevious														= FrameTimeCurrent;
